@@ -14,12 +14,12 @@ TEST_CASE("test the DinoSet class")
     c.add(DinoId::procompsognathus);
     c.add(DinoId::pteranodon);
 
-    SECTION("test to_string") {
-        REQUIRE(a.to_string() == "{}");
-        REQUIRE(b.to_string() == "{velociraptor, tyrannosaurus}");
-        REQUIRE(c.to_string()
-            == "{tyrannosaurus, procompsognathus, pteranodon}");
-    }
+    // SECTION("test to_string") {
+    //     REQUIRE(a.to_string() == "{}");
+    //     REQUIRE(b.to_string() == "{velociraptor, tyrannosaurus}");
+    //     REQUIRE(c.to_string()
+    //         == "{tyrannosaurus, procompsognathus, pteranodon}");
+    // }
 
     SECTION("test contains") {
         REQUIRE_FALSE(a.contains(DinoId::velociraptor));
