@@ -46,12 +46,12 @@ TEST_CASE("test the LinkedList class")
         REQUIRE(d.size() == 8);
     }
 
-    // SECTION("test is_empty") {
-    //     REQUIRE(a.is_empty());
-    //     REQUIRE_FALSE(b.is_empty());
-    //     REQUIRE_FALSE(c.is_empty());
-    //     REQUIRE_FALSE(d.is_empty());
-    // }
+    SECTION("test is_empty") {
+        REQUIRE(a.is_empty());
+        REQUIRE_FALSE(b.is_empty());
+        REQUIRE_FALSE(c.is_empty());
+        REQUIRE_FALSE(d.is_empty());
+    }
 
     // SECTION("test insert_back") {
     //     a.insert_back(true);
@@ -157,30 +157,30 @@ TEST_CASE("test the LinkedList class")
     //           "-4.25, 2.5, 1, 1.618, 1.4142]");
     // }
 
-    // SECTION("test remove_front") {
-    //     REQUIRE_THROWS_AS(a.remove_front(), std::length_error);
-    //     REQUIRE(b.remove_front() == 4);
-    //     REQUIRE(b.remove_front() == 3);
-    //     REQUIRE(b.size() == 2);
-    //     REQUIRE(b.to_string() == "[2, 1]");
-    //     REQUIRE(b.remove_front() == 2);
-    //     REQUIRE(b.remove_front() == 1);
-    //     REQUIRE(b.size() == 0);
-    //     REQUIRE(b.to_string() == "[]");
-    //     REQUIRE_THROWS_AS(b.remove_front(), std::length_error);
-    //     REQUIRE(c.remove_front() == "dseta");
-    //     REQUIRE(c.remove_front() == "épsilon");
-    //     REQUIRE(c.remove_front() == "delta");
-    //     REQUIRE(c.size() == 3);
-    //     REQUIRE(c.to_string() == "[gamma, beta, alfa]");
-    //     double total = 0;
-    //     while (not d.is_empty()) {
-    //         total += d.remove_front();
-    //     }
-    //     REQUIRE(d.size() == 0);
-    //     REQUIRE(d.to_string() == "[]");
-    //     REQUIRE(total == 122.625);
-    // }
+    SECTION("test remove_front") {
+        REQUIRE_THROWS_AS(a.remove_front(), std::length_error);
+        REQUIRE(b.remove_front() == 4);
+        REQUIRE(b.remove_front() == 3);
+        REQUIRE(b.size() == 2);
+        REQUIRE(b.to_string() == "[2, 1]");
+        REQUIRE(b.remove_front() == 2);
+        REQUIRE(b.remove_front() == 1);
+        REQUIRE(b.size() == 0);
+        REQUIRE(b.to_string() == "[]");
+        REQUIRE_THROWS_AS(b.remove_front(), std::length_error);
+        REQUIRE(c.remove_front() == "dseta");
+        REQUIRE(c.remove_front() == "épsilon");
+        REQUIRE(c.remove_front() == "delta");
+        REQUIRE(c.size() == 3);
+        REQUIRE(c.to_string() == "[gamma, beta, alfa]");
+        double total = 0;
+        while (not d.is_empty()) {
+            total += d.remove_front();
+        }
+        REQUIRE(d.size() == 0);
+        REQUIRE(d.to_string() == "[]");
+        REQUIRE(total == 122.625);
+    }
 
     // SECTION("test remove_back") {
     //     REQUIRE_THROWS_AS(a.remove_back(), std::length_error);

@@ -12,5 +12,10 @@ int main()
     std::cout << my_list.size() << "\n";
     std::cout << my_list.to_string() << "\n";
 
+    std::cout << my_list.remove_front() << "\n";
+
+    std::cout << my_list.size() << "\n";
+    std::cout << my_list.to_string() << "\n";
+
     return 0;
 }
