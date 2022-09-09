@@ -24,6 +24,7 @@ public:
         _sentinel->prev = _sentinel;
     }
 
+    // Complejidad: O(N)
     LinkedList(std::initializer_list<T> args): LinkedList()
     {
         for (T arg: args) {
