@@ -231,35 +231,35 @@ TEST_CASE("test the LinkedList class")
     //     REQUIRE(total == 122.625);
     // }
 
-    // SECTION("test extend") {
-    //     LinkedList<bool> a2;
-    //     LinkedList<bool> a3 {true, false, true, true};
-    //     a.extend(a2);
-    //     REQUIRE(a.size() == 0);
-    //     REQUIRE(a.to_string() == "[]");
-    //     a.extend(a3);
-    //     REQUIRE(a.size() == 4);
-    //     REQUIRE(a.to_string() == "[1, 0, 1, 1]");
-    //     a3.extend(a2);
-    //     REQUIRE(a3.size() == 4);
-    //     REQUIRE(a3.to_string() == "[1, 0, 1, 1]");
-    //     LinkedList<int> b2 {5, 6, 7, 8};
-    //     b.extend(b2);
-    //     REQUIRE(b.size() == 8);
-    //     REQUIRE(b.to_string() == "[4, 3, 2, 1, 5, 6, 7, 8]");
-    //     LinkedList<std::string> c2 {"eta", "theta", "iota", "kappa"};
-    //     c2.extend(c);
-    //     REQUIRE(c2.size() == 10);
-    //     REQUIRE(c2.to_string()
-    //         == "[eta, theta, iota, kappa, dseta, épsilon, delta, "
-    //           "gamma, beta, alfa]");
-    //     LinkedList<double> d2 {3.1416};
-    //     LinkedList<double> d3 {};
-    //     d.extend(d2);
-    //     REQUIRE(d.size() == 9);
-    //     d.extend(d3);
-    //     REQUIRE(d.size() == 9);
-    //     REQUIRE(d.to_string()
-    //         == "[-5.5, 76.125, 0, 42, 10.75, -4.25, 2.5, 1, 3.1416]");
-    // }
+    SECTION("test extend") {
+        LinkedList<bool> a2;
+        LinkedList<bool> a3 {true, false, true, true};
+        a.extend(a2);
+        REQUIRE(a.size() == 0);
+        REQUIRE(a.to_string() == "[]");
+        a.extend(a3);
+        REQUIRE(a.size() == 4);
+        REQUIRE(a.to_string() == "[1, 0, 1, 1]");
+        a3.extend(a2);
+        REQUIRE(a3.size() == 4);
+        REQUIRE(a3.to_string() == "[1, 0, 1, 1]");
+        LinkedList<int> b2 {5, 6, 7, 8};
+        b.extend(b2);
+        REQUIRE(b.size() == 8);
+        REQUIRE(b.to_string() == "[4, 3, 2, 1, 5, 6, 7, 8]");
+        LinkedList<std::string> c2 {"eta", "theta", "iota", "kappa"};
+        c2.extend(c);
+        REQUIRE(c2.size() == 10);
+        REQUIRE(c2.to_string()
+            == "[eta, theta, iota, kappa, dseta, épsilon, delta, "
+              "gamma, beta, alfa]");
+        LinkedList<double> d2 {3.1416};
+        LinkedList<double> d3 {};
+        d.extend(d2);
+        REQUIRE(d.size() == 9);
+        d.extend(d3);
+        REQUIRE(d.size() == 9);
+        REQUIRE(d.to_string()
+            == "[-5.5, 76.125, 0, 42, 10.75, -4.25, 2.5, 1, 3.1416]");
+    }
 }
