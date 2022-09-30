@@ -66,5 +66,10 @@ int main()
     std::cout << is_palindrome("anitalavalatina") << "\n";
     std::cout << is_palindrome("anitalavalaloza") << "\n";
 
+    Stack<int> s1(5);
+    // Stack<int> s2 = s1; // Call copy constructor
+    Stack<int> s3(5);
+    // s3 = s1;
+
     return 0;
 }

@@ -15,6 +15,12 @@ public:
         _top = 0;
     }
 
+    // Delete default copy constructor
+    Stack(const Stack& other) = delete;
+
+    // Delete dafault asignment operator
+    Stack<T>& operator=(const Stack& other) = delete;
+
     // Complejidad: O(1)
     ~Stack()
     {
