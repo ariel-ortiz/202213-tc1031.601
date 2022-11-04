@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
 
 const int total_dinos = 8;
 
@@ -27,15 +28,29 @@ public:
 
     std::string to_string() const
     {
-        std::string result = "";
+        std::unordered_map<int, std::string> names = {
+            {0, "velociraptor"},
+            {1, "stegosaurus"},
+            {2, "tyrannosaurus"},
+            {3, "procompsognathus"},
+            {4, "triceratops"},
+            {5, "pachycephalosaurus"},
+            {6, "parasaurolophus"},
+            {7, "pteranodon" }
+        };
+        std::string result = "{";
+        bool first_time = true;
         for (int i = 0; i < total_dinos; ++i) {
             if (_dino[i]) {
-                result += "1";
-            } else {
-                result += "0";
+                if (first_time) {
+                    first_time = false;
+                } else {
+                    result += ", ";
+                }
+                result += names[i];
             }
         }
-        return result;
+        return result + "}";
     }
 
     bool contains(DinoId id) const
