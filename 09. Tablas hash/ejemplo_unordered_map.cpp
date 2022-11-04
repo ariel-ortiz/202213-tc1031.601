@@ -17,5 +17,9 @@ int main()
     std::cout << dic[3] << "\n";
     std::cout << dic.size() << "\n";
 
+    for (auto pareja : dic) {
+        std::cout << pareja.first << ": " << pareja.second << "\n";
+    }
+
     return 0;
 }
