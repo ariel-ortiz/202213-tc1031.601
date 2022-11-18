@@ -116,14 +116,26 @@ bool is_prefix(const IntList& a, const IntList& b)
     return false;
 }
 
+// Complejidad: O(N)
 IntList insert(int value, const IntList& a)
 {
-    return IntList {};
+    if (is_empty(a)) {
+        return IntList {value};
+    } else if (value <= first(a)) {
+        return cons(value, a);
+    } else {
+        return cons(first(a), insert(value, rest(a)));
+    }
 }
 
+// Complejidad: O(N^2)
 IntList insertion_sort(const IntList& a)
 {
-    return IntList {};
+    if (is_empty(a)) {
+        return IntList {};
+    } else {
+        return insert(first(a), insertion_sort(rest(a)));
+    }
 }
 
 IntList binary(int n)

@@ -38,5 +38,9 @@ int main()
 
     std::cout << merge(IntList {4, 8, 15, 16, 23, 42}, IntList {1, 2, 5, 7, 8, 10}) << "\n";
 
+    std::cout << insert(16, IntList {4, 8, 15, 23, 42}) << "\n";
+
+    std::cout << insertion_sort(IntList {15, 8, 42, 4, 16, 23}) << "\n";
+
     return 0;
 }
