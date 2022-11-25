@@ -3,14 +3,17 @@
 #include <functional>
 #include <initializer_list>
 #include <queue>
+#include <cmath>
 
 template<typename T>
 class TreeSet {
 
 public:
 
+    // Complejidad: O(1)
     TreeSet() {}
 
+    // Complejidad: O(N log N)
     TreeSet(std::initializer_list<T> args)
     {
         for (T value : args) {
@@ -18,6 +21,7 @@ public:
         }
     }
 
+    // Complejidad: O(N)
     ~TreeSet()
     {
         _delete(_root);
@@ -56,6 +60,24 @@ public:
         }
     }
 
+    // Complejidad: O(1)
+    int size() const
+    {
+        return _size;
+    }
+
+    // Complejidad: O(1)
+    bool is_empty() const
+    {
+        return _size == 0;
+    }
+
+    // Complejidad: O(log N)
+    bool contains(T value) const
+    {
+        return _contains(value, _root);
+    }
+
     // Complejidad: O(N)
     void inorder(std::function<void(T)> fn) const
     {
@@ -74,6 +96,45 @@ public:
         _postorder(fn, _root);
     }
 
+    // Complejidad: O(N)
+    void levelorder(std::function<void(T)> fn) const
+    {
+        std::queue<Node*> queue;
+        queue.push(_root);
+        while (not queue.empty()) {
+            Node* p = queue.front();
+            queue.pop();
+            if (p) {
+                fn(p->value);
+                queue.push(p->left);
+                queue.push(p->right);
+            }
+        }
+    }
+
+    // Complejidad: O(N)
+    int height() const
+    {
+        return _height(_root);
+    }
+
+    // Complejidad: O(N)
+    bool is_full() const
+    {
+        return _is_full(_root);
+    }
+
+    // Complejidad: O(N)
+    int leaf_count() const
+    {
+        return _leaf_count(_root);
+    }
+
+    // Complejidad: O(N)
+    bool is_perfect() const
+    {
+        return static_cast<int>(std::pow(2, height() + 1)) - 1 == size();
+    }
 
 private:
 
@@ -120,6 +181,58 @@ private:
             _postorder(fn, p->left);
             _postorder(fn, p->right);
             fn(p->value);
+        }
+    }
+
+    bool _contains(T value, Node* p) const
+    {
+        if (p) {
+            if (p->value == value) {
+                return true;
+            } else if (value < p->value) {
+                return _contains(value, p->left);
+            } else {
+                return _contains(value, p->right);
+            }
+        } else {
+            return false;
+        }
+    }
+
+    int _height(Node* p) const
+    {
+        if (p) {
+            return 1 + std::max(_height(p->left), _height(p->right));
+        } else {
+            return -1;
+        }
+    }
+
+    bool _is_full(Node* p) const
+    {
+        if (p) {
+            if (not p->left and not p->right) {
+                return true;
+            } else if (p->left and p->right) {
+                return _is_full(p->left) and _is_full(p->right);
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    int _leaf_count(Node* p) const
+    {
+        if (p) {
+            if (not p->left and not p->right) {
+                return 1;
+            } else {
+                return _leaf_count(p->left) + _leaf_count(p->right);
+            }
+        } else {
+            return 0;
         }
     }
 
